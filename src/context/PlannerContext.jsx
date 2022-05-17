@@ -55,12 +55,19 @@ const PlannerProvider = ({ children }) => {
     return entries.find((note) => note.id === Number(id));
   };
 
+  //stretch delete entry
+  const deleteEntry = (id) => {
+    console.log('hits delete entry function');
+    dispatch({ type: 'delete', payload: { id, } });
+  }
+
   return (
     <PlannerContext.Provider
       value={{
         entries,
         addEntry,
         getEntry,
+        deleteEntry,
       }}
     >
       {children}
